@@ -40,6 +40,7 @@ module Fastlane
             else
               found_identifying_section = false
             end
+            UI.message "**************Find line matching section identifier #{line}******************"
 
             # 2. Update section identifier (if found)
             if !new_section_identifier.empty? && found_identifying_section
@@ -69,6 +70,7 @@ module Fastlane
         end
 
         # Write updated content to file
+        UI.message "*****************file_content #{file_content}***************"
         changelog = File.open(changelog_path, "w")
         changelog.puts(file_content)
         changelog.close
